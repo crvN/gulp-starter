@@ -1,6 +1,6 @@
-var syntax        = 'scss'; // Syntax: sass or scss;
+const syntax        = 'scss'; // Syntax: sass or scss;
 
-var gulp          = require('gulp'),
+const gulp          = require('gulp'),
 		gutil         = require('gulp-util' ),
 		sass          = require('gulp-sass'),
 		browsersync   = require('browser-sync'),
@@ -18,7 +18,7 @@ gulp.task('browser-sync', function() {
 			baseDir: 'app'
 		},
 		notify: false,
-		// open: false,
+		open: false,
 		// tunnel: true,
 		// tunnel: "projectname", //Demonstration page: http://projectname.localtunnel.me
 	})
@@ -37,10 +37,13 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
+		// 'node_modules/popper.js/dist/popper.min.js',
+		'app/libs/bootstrap/bootstrap.min.js',
+		'app/libs/tabs.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
-	// .pipe(uglify()) // Mifify js (opt.)
+	// .pipe(uglify()) // Minify js (opt.)
 	.pipe(gulp.dest('app/js'))
 	.pipe(browsersync.reload({ stream: true }))
 });

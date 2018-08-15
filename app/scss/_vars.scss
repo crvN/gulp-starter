@@ -1,5 +1,13 @@
-$default-font: "roboto-example", sans-serif;
+$default-font: 'Nunito Sans', sans-serif;
 $accent: orange;
+
+$title-color: #091743;
+$sub-title-color: #2e343f;
+$map-dot: #7abfb8;
+$map-line: #51c05e;
+$tabs-color: #52ddb1;
+
+$spacer: 60px;
 
 // Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss"
 $grid-gutter-width: 30px;
