@@ -1,13 +1,12 @@
-$default-font: 'Nunito Sans', sans-serif;
-$accent: orange;
+@import "_mixins/pixel-to-rem";
+$default-font: 'Roboto', sans-serif;
+$main-color: #1F2533;
+$header-color: #01161E;
+$accent: #15D7FF;
+$light-color: #fefefe;
+$timer-color: #06c6ee;
 
-$title-color: #091743;
-$sub-title-color: #2e343f;
-$map-dot: #7abfb8;
-$map-line: #51c05e;
-$tabs-color: #52ddb1;
-
-$spacer: 60px;
+$spacer: 30px;
 
 // Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss"
 $grid-gutter-width: 30px;
