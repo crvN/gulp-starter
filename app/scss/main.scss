@@ -1,7 +1,7 @@
-@import "vars";
-@import "_mixins/pixel-to-rem";
-@import "fonts";
-@import "libs";
+@import 'vars';
+@import '_mixins/pixel-to-rem';
+@import 'fonts';
+@import 'libs';
 
 // #region normalize default styles
 
@@ -136,7 +136,7 @@ ul {
 
   &::before {
     background-color: rgba(1, 22, 30, 0.63);
-    content: "";
+    content: '';
     display: block;
     height: 100%;
     position: absolute;
@@ -236,53 +236,105 @@ ul {
 }
 
 .equalizer-wrapper {
-  min-height: 300px;
-}
+  min-height: 205px;
+  display: flex;
 
+  .equalizer {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15px;
+    $grad-1: red;
+    $grad-2: blue;
+    $grad-3: aqua;
+    $grad-4: orange;
+    $grad-5: brown;
+    $grad-6: pink;
+    $grad-7: red;
+    $grad-8: red;
+    $grad-9: red;
+    $grad-10: red;
+  
+    @for $i from 1 to 10 {
+      $j: $i;
+      @while $j>0 {
+        &.colored-#{$i} {
+          .eqlzr-item:nth-child(#{$j}) {
+            background: repeating-linear-gradient(
+                to top,
+                transparent,
+                transparent 20px,
+                #333 20px,
+                #333 23px
+              ),
+              linear-gradient(to right, red, orange);
+          }
+        }
+        $j: $j - 1;
+      }
+    }
+    .eqlzr-item {
+      height: 99%;
+      width: 9%;
+      align-self: flex-end;
+      border-radius: 5px;
+      background: repeating-linear-gradient(
+          to top,
+          transparent,
+          transparent 20px,
+          #333 20px,
+          #333 23px
+        ),
+        linear-gradient(to bottom, $equalizer, $equalizer);
+      &:nth-child(2n + 1) {
+        height: 50%;
+      }
+    }
+  }
+  .ticket {
+    flex-basis: 25%;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
 .sponsores .section-title:not(:nth-child(2)) {
   flex-grow: 1;
 }
-
 .sponsors-wrapper {
   flex-grow: 1;
   margin-right: calculateRem($spacer);
 }
-
 .sponsors-logos {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .timer-wrapper {
   width: 33%;
 }
-
 .event-time-to {
   display: inline-block;
   text-align: center;
 }
-
 .event-time-left {
   text-align: left;
   width: 33%;
   // padding-left: calculateRem(25px);
   // padding-bottom: calculateRem((15px));
 }
-
 .clockdiv {
   color: $light-color;
   display: inline-block;
   text-align: center;
   font-size: calculateRem($spacer);
 }
-
 .clockdiv > div {
   padding: calculateRem(5px);
   border-radius: calculateRem(5px);
   display: inline-block;
 }
-
 .clockdiv div > span {
   padding: calculateRem(4px);
   border-radius: calculateRem(3px);
@@ -293,30 +345,25 @@ ul {
   display: inline-block;
   color: $timer-color;
 }
-
 .smalltext {
   padding-top: calculateRem(5px);
   font-size: calculateRem(14px);
 }
-
 .gallery-row {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
   .gallery-item {
     position: relative;
     width: 23%;
     min-height: 180px;
-
     img {
       display: block;
       width: 100%;
       border-radius: calculateRem(15px);
     }
-
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       right: 0;
@@ -327,12 +374,10 @@ ul {
     }
   }
 }
-
 .other-events {
   background-color: #fff;
   padding: $spacer 0;
 }
-
 .votes-title {
   color: $accent;
   font-size: calculateRem(40px);
@@ -342,24 +387,20 @@ ul {
   width: 68%;
   line-height: 3.5rem;
 }
-
 .event-card {
   color: $light-color;
   border-radius: calculateRem(15px);
   display: inline-block;
   position: relative;
-
   .event-time-left {
     width: 100%;
   }
 }
-
 .event-card--concert1 {
   background: $header-color;
   position: relative;
   z-index: 1;
   overflow: hidden;
-
   &::before {
     z-index: -1;
     position: absolute;
@@ -367,24 +408,21 @@ ul {
     top: 0;
     height: 100%;
     width: 100%;
-    content: "";
+    content: '';
     background: url(../img/pic4.jpg) 50% 50% / cover;
     opacity: 0.3;
   }
 }
-
 .event-card--horizontal {
   width: 100%;
   max-height: 120px;
   padding-top: calculateRem(5px);
   // margin-bottom: calculateRem($spacer);
 }
-
 .event-card__col1 {
   padding-left: calculateRem($spacer);
   padding-top: calculateRem(15px);
 }
-
 .event-card--horizontal .event-card__col1,
 .event-card--horizontal .event-card__col2,
 .event-card--horizontal .event-card__col3 {
@@ -392,17 +430,14 @@ ul {
   width: 33%;
   vertical-align: top;
 }
-
 .event-card .event-time {
   font-size: calculateRem(36px);
   line-height: calculateRem(40px);
 }
-
 .event-card .event-date {
   font-size: calculateRem(14px);
   line-height: calculateRem(16px);
 }
-
 .event-card .event-name {
   color: $accent;
   font-weight: bold;
@@ -410,35 +445,28 @@ ul {
   font-size: calculateRem(33px);
   line-height: 2.5rem;
 }
-
 .event-card .event-location {
   font-size: calculateRem(12px);
   text-transform: uppercase;
 }
-
 .event-card .event-time-to {
   text-align: left;
   width: 100%;
 }
-
 .event-card .event-time-left {
   font-size: calculateRem(15px);
   padding-top: calculateRem(5px);
   padding-bottom: 0;
   padding-left: calculateRem(5px);
 }
-
 .event-card .clockdiv {
   font-size: calculateRem(20px);
 }
-
 .event-card .clockdiv > div > span {
   font-size: calculateRem(40px);
   line-height: 2.7rem;
 }
-
 // #endregion main
-
 // #region footer
 .document-footer {
   min-height: 130px;
@@ -459,11 +487,11 @@ ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
-
     li + li {
       margin-left: calculateRem(20px);
     }
   }
 }
 // #endregion footer
-@import "media"; // Always at the end
+@import 'media';
+// Always at the end
